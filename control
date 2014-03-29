@@ -7,8 +7,6 @@ height=$(xwininfo -root| awk -F '[ :]+' '/ (Height):/ { print $3 }')
 half_width=$((width/2))
 half_height=$((height/2))
 
-echo "$half_width"
-
 ############
 # Quarters #
 ############
