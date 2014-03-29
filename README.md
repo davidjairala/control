@@ -10,6 +10,12 @@ OS over to Ubuntu this past week offered by [Spectacle](http://spectacleapp.com/
 sudo apt-get install wmctrl xbindkeys
 ```
 
+## Get the code
+
+```bash
+git clone git@github.com:davidjairala/control.git
+```
+
 ## Edit ~/.xbindkeysrc
 
 Mine looks something like:
