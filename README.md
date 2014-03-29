@@ -4,19 +4,19 @@ Shell script to control your window via `wmctrl` and `xbindkeys`.
 Basically, some functionality I was missing when moving over from Mac
 OS over to Ubuntu this past week offered by [Spectacle](http://spectacleapp.com/)
 
-## Install dependencies
+### Install dependencies
 
 ```bash
 sudo apt-get install wmctrl xbindkeys
 ```
 
-## Get the code
+### Get the code
 
 ```bash
 git clone git@github.com:davidjairala/control.git
 ```
 
-## Usage
+### Usage
 
 You can use the following options to resize the active window:
 
@@ -39,7 +39,7 @@ You can use the following options to resize the active window:
 The real usefulness of the script comes when combined with `xbindkeys`
 tho, explained below.
 
-## Edit ~/.xbindkeysrc
+### Edit ~/.xbindkeysrc
 
 Mine looks something like:
 
@@ -81,7 +81,7 @@ Mine looks something like:
 
 ```
 
-## Enjoy!
+### Enjoy!
 
 Next time you log in, you'll be able to control your active window's
 position via the keyboard thanks to wmctrl and xbindkeys!
