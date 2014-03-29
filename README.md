@@ -16,6 +16,29 @@ sudo apt-get install wmctrl xbindkeys
 git clone git@github.com:davidjairala/control.git
 ```
 
+## Usage
+
+You can use the following options to resize the active window:
+
+* `qtl` - quarter top left
+* `qtr` - quarter top right
+* `qbl` - quarter bottom left
+* `qbr` - quarter bottom righ
+* `mt` - mid top
+* `mb` - mid bottom
+* `ml` - mid left
+* `mr` - mid right
+* `f` - full
+
+```bash
+./control qtl
+./control ml
+./control f
+```
+
+The real usefulness of the script comes when combined with `xbindkeys`
+tho, explained below.
+
 ## Edit ~/.xbindkeysrc
 
 Mine looks something like:
