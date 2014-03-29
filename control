@@ -1,0 +1,69 @@
+#!/bin/sh
+
+# Get info about resolution
+width=$(xwininfo -root| awk -F '[ :]+' '/ (Width):/ { print $3 }')
+height=$(xwininfo -root| awk -F '[ :]+' '/ (Height):/ { print $3 }')
+
+half_width=$((width/2))
+half_height=$((height/2))
+
+echo "$half_width"
+
+############
+# Quarters #
+############
+
+# quarter top left
+if [ "$1" = "qtl" ]
+then
+  wmctrl -r :ACTIVE: -e 0,0,0,$half_width,$half_height
+
+# quarter top right
+elif [ "$1" = "qtr" ]
+then
+  wmctrl -r :ACTIVE: -e 0,$half_width,0,$half_width,$half_height
+
+# quarter bottom left
+elif [ "$1" = "qbl" ]
+then
+  wmctrl -r :ACTIVE: -e 0,0,$half_height,$half_width,$half_height
+
+# quarter bottom right
+elif [ "$1" = "qbr" ]
+then
+  wmctrl -r :ACTIVE: -e 0,$half_width,$half_height,$half_width,$half_height
+
+########
+# Mids #
+########
+
+# mid left
+elif [ "$1" = "ml" ]
+then
+  wmctrl -r :ACTIVE: -e 0,0,0,$half_width,$height
+
+# mid right
+elif [ "$1" = "mr" ]
+then
+  wmctrl -r :ACTIVE: -e 0,$half_width,0,$half_width,$height
+
+# mid top
+elif [ "$1" = "mt" ]
+then
+  wmctrl -r :ACTIVE: -e 0,0,0,$width,$half_height
+
+# mid bottom
+elif [ "$1" = "mb" ]
+then
+  wmctrl -r :ACTIVE: -e 0,0,$half_height,$width,$half_height
+
+########
+# Full #
+########
+
+elif [ "$1" = "f" ]
+then
+  wmctrl -r :ACTIVE: -e 0,0,0,$width,$height
+
+fi
+
