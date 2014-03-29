@@ -41,6 +41,9 @@ tho, explained below.
 
 ### Edit ~/.xbindkeysrc
 
+Whenever you edit your `~/.xbindkeysrc` make sure you restart
+**xbindkeysrc** itself.
+
 Mine looks something like:
 
 ```bash
