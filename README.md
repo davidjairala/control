@@ -44,7 +44,7 @@ tho, explained below.
 Whenever you edit your `~/.xbindkeysrc` make sure you restart
 **xbindkeysrc** itself.
 
-Mine looks something like:
+My config looks something like:
 
 ```bash
 ##################################
