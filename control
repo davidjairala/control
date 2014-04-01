@@ -7,6 +7,8 @@ height=$(xwininfo -root| awk -F '[ :]+' '/ (Height):/ { print $3 }')
 half_width=$((width/2))
 half_height=$((height/2))
 
+systray_height=22
+
 ############
 # Quarters #
 ############
@@ -14,22 +16,22 @@ half_height=$((height/2))
 # quarter top left
 if [ "$1" = "qtl" ]
 then
-  wmctrl -r :ACTIVE: -e 0,0,0,$half_width,$half_height
+  wmctrl -r :ACTIVE: -e 1,0,$systray_height,$half_width,$half_height
 
 # quarter top right
 elif [ "$1" = "qtr" ]
 then
-  wmctrl -r :ACTIVE: -e 0,$half_width,0,$half_width,$half_height
+  wmctrl -r :ACTIVE: -e 1,$half_width,$systray_height,$half_width,$half_height
 
 # quarter bottom left
 elif [ "$1" = "qbl" ]
 then
-  wmctrl -r :ACTIVE: -e 0,0,$half_height,$half_width,$half_height
+  wmctrl -r :ACTIVE: -e 1,0,$((half_height+systray_height)),$half_width,$((half_height-systray_height*2))
 
 # quarter bottom right
 elif [ "$1" = "qbr" ]
 then
-  wmctrl -r :ACTIVE: -e 0,$half_width,$half_height,$half_width,$half_height
+  wmctrl -r :ACTIVE: -e 1,$half_width,$((half_height+systray_height)),$half_width,$((half_height-systray_height*2))
 
 ########
 # Mids #
@@ -38,22 +40,22 @@ then
 # mid left
 elif [ "$1" = "ml" ]
 then
-  wmctrl -r :ACTIVE: -e 0,0,0,$half_width,$height
+  wmctrl -r :ACTIVE: -e 1,0,$systray_height,$half_width,$((height-systray_height*2))
 
 # mid right
 elif [ "$1" = "mr" ]
 then
-  wmctrl -r :ACTIVE: -e 0,$half_width,0,$half_width,$height
+  wmctrl -r :ACTIVE: -e 1,$half_width,$systray_height,$half_width,$((height-systray_height*2))
 
 # mid top
 elif [ "$1" = "mt" ]
 then
-  wmctrl -r :ACTIVE: -e 0,0,0,$width,$half_height
+  wmctrl -r :ACTIVE: -e 1,0,$systray_height,$width,$((half_height-systray_height))
 
 # mid bottom
 elif [ "$1" = "mb" ]
 then
-  wmctrl -r :ACTIVE: -e 0,0,$half_height,$width,$half_height
+  wmctrl -r :ACTIVE: -e 1,0,$half_height,$width,$((half_height-systray_height))
 
 ########
 # Full #
@@ -61,7 +63,7 @@ then
 
 elif [ "$1" = "f" ]
 then
-  wmctrl -r :ACTIVE: -e 0,0,0,$width,$height
+  wmctrl -r :ACTIVE: -e 1,0,$systray_height,$width,$((height-systray_height*2))
 
 fi
 
