@@ -7,7 +7,7 @@ height=$(xwininfo -root| awk -F '[ :]+' '/ (Height):/ { print $3 }')
 half_width=$((width/2))
 half_height=$((height/2))
 
-systray_height=22
+systray_height=24
 
 ############
 # Quarters #
