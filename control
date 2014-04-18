@@ -7,7 +7,8 @@ height=$(xwininfo -root| awk -F '[ :]+' '/ (Height):/ { print $3 }')
 half_width=$((width/2))
 half_height=$((height/2))
 
-systray_height=24
+systray_height=0
+height_decrease=24
 
 ############
 # Quarters #
@@ -26,12 +27,12 @@ then
 # quarter bottom left
 elif [ "$1" = "qbl" ]
 then
-  wmctrl -r :ACTIVE: -e 1,0,$((half_height+systray_height)),$half_width,$((half_height-systray_height*2))
+  wmctrl -r :ACTIVE: -e 1,0,$half_height,$half_width,$((half_height-height_decrease))
 
 # quarter bottom right
 elif [ "$1" = "qbr" ]
 then
-  wmctrl -r :ACTIVE: -e 1,$half_width,$((half_height+systray_height)),$half_width,$((half_height-systray_height*2))
+  wmctrl -r :ACTIVE: -e 1,$half_width,$half_height,$half_width,$((half_height-height_decrease))
 
 ########
 # Mids #
@@ -40,12 +41,12 @@ then
 # mid left
 elif [ "$1" = "ml" ]
 then
-  wmctrl -r :ACTIVE: -e 1,0,$systray_height,$half_width,$((height-systray_height*2))
+  wmctrl -r :ACTIVE: -e 1,0,$systray_height,$half_width,$((height-height_decrease))
 
 # mid right
 elif [ "$1" = "mr" ]
 then
-  wmctrl -r :ACTIVE: -e 1,$half_width,$systray_height,$half_width,$((height-systray_height*2))
+  wmctrl -r :ACTIVE: -e 1,$half_width,$systray_height,$half_width,$((height-height_decrease))
 
 # mid top
 elif [ "$1" = "mt" ]
@@ -55,7 +56,7 @@ then
 # mid bottom
 elif [ "$1" = "mb" ]
 then
-  wmctrl -r :ACTIVE: -e 1,0,$half_height,$width,$((half_height-systray_height))
+  wmctrl -r :ACTIVE: -e 1,0,$half_height,$width,$((half_height-height_decrease))
 
 ########
 # Full #
@@ -63,7 +64,7 @@ then
 
 elif [ "$1" = "f" ]
 then
-  wmctrl -r :ACTIVE: -e 1,0,$systray_height,$width,$((height-systray_height*2))
+  wmctrl -r :ACTIVE: -e 1,0,$systray_height,$width,$((height-height_decrease))
 
 fi
 
